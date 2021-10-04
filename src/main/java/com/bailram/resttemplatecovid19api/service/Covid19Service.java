@@ -48,4 +48,14 @@ public class Covid19Service {
         return restTemplate.exchange(
                 API_BASE_URL+"history?country="+countryCode+"&day="+date, HttpMethod.GET, entity, String.class);
     }
+    public ResponseEntity<String> getHistory(String countryCode, String date, String senggoldong) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+        headers.set("X-Rapidapi-Key", API_KEY);
+        headers.set("X-Rapidapi-Host", API_HOST);
+        HttpEntity <String> entity = new HttpEntity<String>(headers);
+
+        return restTemplate.exchange(
+                API_BASE_URL+"history?country="+countryCode+"&day="+date, HttpMethod.GET, entity, String.class);
+    }
 }
